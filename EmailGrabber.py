@@ -48,7 +48,7 @@ def getEmail(link, fb='', search=''):
             elif '@' in link.get_text():
                 match = re.findall(r'[\w\.-]+@[\w\.-]+', link.get_text())
                 if match:
-                    return match[0]
+                    return match
             elif 'contact' in url and not search=='fb' and not search == 'contact':
                 cPage = url 
             elif 'facebook' in url or 'fb' in url:
@@ -59,7 +59,7 @@ def getEmail(link, fb='', search=''):
     text = body.get_text()
     match = re.findall(r'[\w\.-]+@[\w\.-]+', text)
     if match:
-        return match[0]
+        return match
     try:
         if '/' in cPage[0] and not search:
             print("\t[=] Visiting Contact Page")
